@@ -4,8 +4,8 @@
    supabase/schema.sql qui protègent les données. Ne mettez jamais ici la
    clé "service_role". */
 window.CONFIG = {
-  SUPABASE_URL: "https://VOTRE-PROJET.supabase.co",
-  SUPABASE_ANON_KEY: "VOTRE-CLE-ANON",
+  SUPABASE_URL: "https://ccudwrvspujkfebrttih.supabase.co",
+  SUPABASE_ANON_KEY: "sb_publishable__QHMjZwBUxLEvL2-gmsNsw_KNsel7cF",
 
   // Domaine des adresses autorisées à créer un compte. Doit être le même
   // que dans supabase/schema.sql (fonctions is_oresys et inscription_oresys_uniquement).
