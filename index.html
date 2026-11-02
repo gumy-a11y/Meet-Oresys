@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Meet'Oresys</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="head" id="head">
+      <div class="brand">
+        <div><h1>Meet'Oresys</h1><div class="sub">Salles de séminaire · départ 48 rue de Londres <span class="dot-o"></span></div></div>
+        <button class="btn primary" type="button" id="addbtn" hidden>+ Ajouter un lieu</button>
+      </div>
+      <div class="acctbar">
+        <span class="lbl" id="accttitle">Connexion</span>
+        <button type="button" class="fold" id="acctfold" aria-expanded="true" aria-controls="account" title="Masquer le bandeau de connexion"><span aria-hidden="true">▲</span></button>
+      </div>
+      <div class="account" id="account"></div>
+      <div class="filters" id="filters">
+        <div>
+          <div class="lbl">Temps de trajet max</div>
+          <div class="range"><input id="tmax" type="range" min="10" max="60" step="5" value="60" aria-label="Temps de trajet maximum"><output id="tout">1 h et +</output></div>
+        </div>
+        <div>
+          <div class="lbl">Nombre de participants</div>
+          <div class="range"><input id="pmin" type="range" min="0" max="200" step="10" value="0" aria-label="Nombre minimum de participants"><output id="pout">Tous</output></div>
+        </div>
+        <div>
+          <div class="lbl">Type de lieu</div>
+          <div class="chips" id="ftype"></div>
+        </div>
+        <div>
+          <div class="lbl">Format</div>
+          <div class="chips" id="ffmt"></div>
+        </div>
+        <div id="statfilter" hidden>
+          <div class="lbl">Statut (équipe)</div>
+          <div class="chips" id="fstat"></div>
+        </div>
+        <div class="count" id="count"></div>
+      </div>
+    </div>
+    <div class="scroll" id="scroll">
+      <ul class="list" id="list"></ul>
+      <div id="detail" hidden></div>
+    </div>
+  </aside>
+  <div class="resizer" id="resizer" role="separator" aria-orientation="vertical" aria-label="Redimensionner le panneau latéral" tabindex="0" title="Glisser pour agrandir le panneau"><span></span></div>
+  <div class="map-wrap">
+    <div id="map" role="application" aria-label="Carte de Paris avec les salles"></div>
+    <div class="legend" aria-hidden="true">
+      <span><i style="background:var(--oresys);border-radius:2px"></i>Oresys</span>
+      <span><i style="background:var(--t-flex)"></i>Espace de travail premium</span>
+      <span><i style="background:var(--t-atyp)"></i>Lieu atypique</span>
+      <span><i style="background:var(--t-aff)"></i>Centre d'affaires</span>
+      <span><i style="background:var(--t-hotel)"></i>Hôtel</span>
+    </div>
+  </div>
+</div>
+<div class="lightbox" id="lb" hidden><button type="button" id="lbx">Fermer</button><img id="lbimg" alt=""></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
